@@ -8,9 +8,8 @@ function getUserDetails($id = false) {
 	$mysqli = $GLOBALS['DB'];
 	
 	if ($id) {
-		if($result = $mysqli->query('SELECT * FROM users WHERE id = ' . $id . ';')){
-			return $result->fetch_assoc();
-		}
+		$result = query('SELECT * FROM users WHERE id = ' . $id . ';');
+		return $result[0];
 	}else {
 		return false;
 	}

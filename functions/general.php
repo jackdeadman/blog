@@ -1,17 +1,15 @@
 <?php
 function query($sql){
 	$mysqli = $GLOBALS['DB'];
+	$result = $mysqli->query($sql);
 	$results = array();
-
-	if ($result = $mysqli->query($sql)) {
-		while($results[] = $result->fetch_assoc()){
-
-		}
+	if ($result->num_rows) {
+		while ($row = $result->fetch_array(MYSQLI_ASSOC)){
+			$results[] = $row;
+		}	
 	}
-
 	return $results;
 }
-
 
 /**
  * Helper function for redirecting the page
