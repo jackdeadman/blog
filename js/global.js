@@ -24,8 +24,6 @@ $(document).ready(function() {
 
 				xhr.onload = function() {
 					var data = this.responseText;
-					
-
 				};
 				dropzone.innerHTML = 'Uploading...';
 				xhr.open('post', 'upload.php');
