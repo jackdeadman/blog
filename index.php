@@ -51,7 +51,8 @@ if (!empty($_POST)) {
 				if ($username = sessionFlash('username')){
 					$autofocus = 'password';
 				}
-				if ($username = $_POST['username']) {
+				if (isset($_POST['username'])) {
+					$username = $_POST['username'];
 					$autofocus = 'password';
 				}
 				?>
