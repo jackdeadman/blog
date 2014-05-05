@@ -38,6 +38,9 @@ body {
 	padding: 0;
 	font-family: 'Varela Round', sans-serif;
 }
+.app{
+	background: #2a8bcc;
+}
 
 .hidden{
 	display: none;
@@ -289,9 +292,10 @@ input:not([type='submit']):focus::-webkit-input-placeholder{
 /******** END REGISTER ********/
 
 /******** LATEST ********/
-.latest{
+.main{
 	background: #2a8bcc;
 }
+
 .menu-container{
 	font-family: 'Lato', sans-serif;
 	width: 100%;
@@ -356,11 +360,10 @@ input:not([type='submit']):focus::-webkit-input-placeholder{
 	line-height: 1.5em;
 }
 .feed article p{
-	margin-left: 40px;
-	margin-right: 40px;
+	margin: 40px;
 }
 .feed article header{
-	margin-left: 40px;
+	margin-left: 20px;
 }
 
 .latest-page header{
@@ -441,4 +444,56 @@ article .edit{
 .footer-container{
 	max-width: 900px;
 	margin: auto;
+}
+
+.new-post{
+	background-color: #fff;
+	padding: 10px;
+	height: 100%;
+}
+
+.new-post + .site-footer{
+	position: absolute;
+	top: 0px;
+}
+
+.new-post .post-title{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.new-post textarea{
+	width: 100%;
+	max-width: 100%;
+	height: 200px;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 15px;
+	line-height: 1.5em;
+}
+
+.new-post .buttons{
+	float: right;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.category{
+	float: left;
+	line-height: 42px;
+}
+
+.sticky-footer footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.main{
+	height: 100%;
+	box-sizing: border-box;
 }

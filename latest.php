@@ -13,8 +13,8 @@ require_once 'includes/checklogin.php';
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
-<body>
-	<div id="wrapper" class="latest">
+<body class="app">
+	<div id="wrapper" class="main">
 		<?php require_once 'includes/header.php';?>
 		<div class="latest-page">
 			<div class="popular-blogs">
@@ -30,7 +30,7 @@ require_once 'includes/checklogin.php';
 			</div>
 			<header class="recent-post cf">
 				<h2>Recent Posts</h2>
-				<div class="post-something"><a class="button button-primary" href="#">Post Something</a></div>
+				<div class="post-something"><a class="button button-primary" href="addpost.php">Post Something</a></div>
 			</header>
 			<div class="feed">
 				<article>
@@ -102,9 +102,9 @@ require_once 'includes/checklogin.php';
 						<a class="readmore" href="#">Read More</a>
 					</footer>
 				</article>
-				<?php require_once 'includes/footer.php';?>
 			</div>
 		</div>
+		<?php require_once 'includes/footer.php';?>
 	</div>
 </body>
 </html>
