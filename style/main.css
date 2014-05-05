@@ -360,14 +360,23 @@ input:not([type='submit']):focus::-webkit-input-placeholder{
 	line-height: 1.5em;
 }
 .feed article p{
-	margin: 40px;
+	margin: 20px;
 }
 .feed article header{
 	margin-left: 20px;
 }
 
-.latest-page header{
-	/*margin-bottom: 10px;*/
+.latest-page .more a{
+	display: block;
+	width: 200px;
+	text-align: center;
+	margin: auto;
+	background-color: #fff;
+	padding: 10px;
+	color: #222;
+}
+.latest-page .more a:hover{
+	opacity: 0.8;
 }
 
 .latest-page header h2{
@@ -459,7 +468,6 @@ article .edit{
 
 .new-post .post-title{
 	width: 100%;
-	margin-bottom: 10px;
 }
 
 .new-post textarea{
@@ -470,6 +478,7 @@ article .edit{
 	padding: 10px;
 	font-size: 15px;
 	line-height: 1.5em;
+	margin: 20px 0;
 }
 
 .new-post .buttons{
@@ -497,3 +506,16 @@ button:focus {
 	height: 100%;
 	box-sizing: border-box;
 }
+.category select{
+	width: 150px;
+}
+
+
+.post-details{
+	background-color: #fff;
+}
+
+.post-comments{
+	margin-top: 20px;
+	padding: 10px;
+} 

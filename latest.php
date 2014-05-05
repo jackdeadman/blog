@@ -41,7 +41,7 @@ require_once 'includes/checklogin.php';
 					</p>
 					<footer>
 						<span>Posted in <a href="#">CSS and Web Design</a></span>
-						<a class="readmore" href="#">Read More</a>
+						<a class="readmore" href="showpost.php">Read More</a>
 					</footer>
 				</article>
 
@@ -102,6 +102,7 @@ require_once 'includes/checklogin.php';
 						<a class="readmore" href="#">Read More</a>
 					</footer>
 				</article>
+				<div class="more"><a href="#">Load More</a></div>
 			</div>
 		</div>
 		<?php require_once 'includes/footer.php';?>

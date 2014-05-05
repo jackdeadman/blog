@@ -17,7 +17,7 @@ if (isset($_POST['title'],$_POST['body'],$_POST['blog'])) {
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Latest</title>
+	<title>Add a Post</title>
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 </head>

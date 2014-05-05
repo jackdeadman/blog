@@ -1,4 +1,4 @@
-Blog
+Blog (Incomplete)
 ====
 
-Simple procedural blog for college course work. Allows users to login and create posts in the blogs provided. Admin accounts are able to create new blogs, edit and delete blogs and posts.
+Simple procedural blog for college course work with user and admin privileges. Users have the ability to post in currently available blogs and edit their own posts. Admin users have the ability to edit all posts as well as adding entirely new blogs. 
