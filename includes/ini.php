@@ -4,8 +4,9 @@ require_once 'functions/general.php';
 
 $dbhost = "212.48.66.176";
 $dbuser = "itecdigi_417880c";
-$dbpass = "";
+$dbpass = "mypassword";
 $dbdata = "itecdigi_417880_sd1";
+
 
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbdata);
 $GLOBALS['DB'] = $mysqli;
