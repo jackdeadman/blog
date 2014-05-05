@@ -15,12 +15,7 @@ require_once 'includes/checklogin.php';
 </head>
 <body>
 	<div id="wrapper" class="latest">
-		<header class="menu-container">
-			<ul class="menu-inside cf">
-				<li class="logo"><h2><a href="#">Blog</a></h2></li>
-				<li class="menu-icon"><a href="logout.php">Sign Out</a></li>
-			</ul>
-		</header>
+		<?php require_once 'includes/header.php';?>
 		<div class="latest-page">
 			<div class="popular-blogs">
 				<ul class="cf">
@@ -107,17 +102,9 @@ require_once 'includes/checklogin.php';
 						<a class="readmore" href="#">Read More</a>
 					</footer>
 				</article>
-			
+				<?php require_once 'includes/footer.php';?>
 			</div>
 		</div>
-		<footer class="site-footer">
-			<div class="footer-container">
-				<ul class="cf">
-					<li><a href="https://github.com/jackdeadman/blog">Source Code</a></li>
-					<li><a href="#">Feedback</a></li>
-				</ul>
-			</div>
-		</footer>
 	</div>
 </body>
 </html>
