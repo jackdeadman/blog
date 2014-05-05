@@ -1,0 +1,444 @@
+/******** CLEARFIX HACK *******/
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+/******** END CLEARFIX HACK *******/
+
+/******** GENERAL ********/
+input{
+	--webkit-appearance: none;
+	border-radius: 0;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Varela Round', sans-serif;
+}
+
+.hidden{
+	display: none;
+	visibility: none;
+}
+
+.error{ 
+	color: #e74c3c;
+}
+
+.success{
+	color: #2ecc71;
+}
+
+a{
+	color: #111;
+	color: #3498db;
+	text-decoration: none;
+}
+a:hover{
+	color: #555;
+}
+
+input:not([type='submit']){
+	box-sizing: border-box;
+	font-family: 'Helvetica Neue', sans-serif;
+	color: #333;
+	font-size: 19px;
+	background: transparent;
+	background: transparent;
+	vertical-align: middle;
+	border: none;
+	outline: none;
+	-webkit-appearance: none;
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+}
+input:not([type='submit']):focus{
+	border-color: #3498db;
+	color: #3498db;
+}
+
+input:not([type='submit']):focus::-webkit-input-placeholder{
+	color: #3498db;
+}
+
+.button{
+	-webkit-appearance: none;
+	font-family: sans-serif;
+	position: relative;
+	vertical-align: top;
+	height: 40px;
+	padding: 0 15px;
+	font-size: 14px;
+	color: white;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	background: #3498db;
+	border: 0;
+	border-bottom: 2px solid #2a8bcc;
+	cursor: pointer;
+	-webkit-box-shadow: inset 0 -2px #2a8bcc;
+	box-shadow: inset 0 -2px #2a8bcc;
+	margin: 0;
+	vertical-align: middle;
+	line-height: 40px;
+	display: inline-block;
+}
+.button:hover{
+	opacity: 0.8;
+	color: inherit;
+}
+
+.button-primary{
+	background: #3498db;
+	-webkit-box-shadow: inset 0 -2px #2a8bcc;
+	box-shadow: inset 0 -2px #2a8bcc;
+}
+.button-primary:hover{
+	color: #fff;
+}
+
+.button-secondary{
+	color: #454545;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	background: #ecf0f1;
+	border-bottom: 2px solid #dadedf;
+	-webkit-box-shadow: inset 0 -2px #dadedf;
+	box-shadow: inset 0 -2px #dadedf;
+}
+
+.button-danger{
+	color: white;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	background: #c0392b;
+	border-bottom: 2px solid #b53224;
+	-webkit-box-shadow: inset 0 -2px #b53224;
+	box-shadow: inset 0 -2px #b53224;
+}
+
+.button-danger:hover{
+	color: #fff;
+}
+
+/******** END GENERAL ********/
+
+/******** LOGIN ********/
+
+.login-page{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.login-page a{
+	color: #666;
+}
+.login-page a:hover{
+	color: #222;
+}
+
+.login-error{
+	height: 20px;  /*Needs fixed height to stop form moving when appearing */
+	margin: 20px auto;
+	text-align: center;
+}
+
+.login-success{
+	height: 20px;  /*Needs fixed height to stop form moving when appearing */
+	margin: 20px auto;
+	text-align: center;
+}
+
+.login-form{
+	width: 400px;
+	margin: auto;
+}
+.login-form input{
+	width: 100%;
+	text-align: center;
+	margin: 5px 0;
+}
+
+.login-form input[type='submit']{
+	-webkit-appearance: none;
+	position: relative;
+	vertical-align: top;
+	height: 60px;
+	padding: 0;
+	font-size: 22px;
+	color: white;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	background: #3498db;
+	border: 0;
+	border-bottom: 2px solid #2a8bcc;
+	cursor: pointer;
+	-webkit-box-shadow: inset 0 -2px #2a8bcc;
+	box-shadow: inset 0 -2px #2a8bcc;
+	margin-top: 20px;
+}
+.login-form input[type='submit']:hover{
+	opacity: 0.8;
+}
+.register-button{
+	float: right;
+}
+
+.login-title{
+	text-align: center;
+	font-size: 3em;
+}
+.login-title h2{
+	font-family: 'Varela Round', sans-serif;
+	margin: 0;
+	margin-top: 80px;
+}
+
+/******** END LOGIN ********/
+
+/******** REGISTER ********/
+.avatar{
+	margin-top: 40px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+.drop{
+	display: inline-block;
+	text-align: center;
+	line-height: 150px;
+	height: 150px;
+	width: 150px;
+	border: 1px dashed #ccc;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.drop img{
+	height: 100%; 
+}
+
+.dragover{
+	border: 1px dashed #3498db;
+	color: #3498db;
+}
+
+.register-page{
+	list-style: none;
+	padding: 0;
+	margin: auto;
+	width: 300px;
+}
+
+.register-page input[type="text"], .register-page input[type="password"]{
+	width: 100%;
+}
+
+.register-page .buttons{
+	text-align: right;
+	margin: 10px 0;
+}
+
+.register-page a{
+	color: #666;
+}
+.register-page a:hover{
+	color: #222;
+}
+
+.register-error{
+	text-align: right;
+	height: 20px;
+}
+.register-error:first-child{
+	text-align: center;
+}
+
+.sign-up{
+	margin-left: 10px;
+}
+
+.avatar-upload{
+	/* Hack to allow hidden file upload */
+	position: absolute;
+	top: -1000px;
+	left: -1000px;
+}
+
+/******** END REGISTER ********/
+
+/******** LATEST ********/
+.latest{
+	background: #2a8bcc;
+}
+.menu-container{
+	font-family: 'Lato', sans-serif;
+	width: 100%;
+	border-bottom: 1px solid rgba(0,0,0, 0.2);
+	background-color: white;
+	background-clip: padding-box;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	z-index: 1000000;
+}
+
+.menu-container .menu-inside{
+	max-width: 900px;
+	margin: auto;
+	list-style: none;
+}
+.menu-container ul{padding: 0;}
+.menu-container .menu-inside li{
+	padding: 10px 0;
+}
+.menu-container .menu-inside li h2{
+	padding: 0;
+	margin: 0;
+}
+.menu-container .menu-inside li a{
+	color: #27516E;
+}
+
+.menu-container .menu-inside li a:hover{
+	color: #297AB3;
+}
+
+.logo{
+	float: left;
+}
+.menu-icon{
+	float: right;
+	margin-top: 6px;
+}
+.menu-icon img{
+	height: 30px;
+	width: auto;
+}
+
+.latest-page{
+	padding: 20px;
+	max-width: 900px;
+	margin: auto;
+}
+
+.feed article{
+	position: relative;
+	max-width: 900px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin: 20px 0;
+	background: #fff;
+	line-height: 1.5em;
+}
+.feed article p{
+	margin-left: 40px;
+	margin-right: 40px;
+}
+.feed article header{
+	margin-left: 40px;
+}
+
+.latest-page header{
+	/*margin-bottom: 10px;*/
+}
+
+.latest-page header h2{
+	margin: 0;
+	margin-top: 8px;
+}
+.recent-post{
+	padding: 10px;
+	background-color: #fff;
+}
+
+.recent-post h2{
+	float: left;
+	color: #000
+}
+
+.post-something{
+	float: right;
+}
+
+.feed article footer .readmore{
+	float: right;
+}
+
+article .edit{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.popular-blogs ul{
+	margin: 0;
+	padding: 5px;
+	margin-bottom: 20px;
+	list-style: none;
+	display: block;
+}
+.popular-blogs ul a{
+	color: #fff;
+}
+.popular-blogs ul a:hover{
+	color: #eee;
+}
+.popular-blogs ul li{
+	float: left;
+}
+
+.popular-blogs ul li + li::before{
+	content: '/';
+	color: #fff;
+	margin: 0 10px;
+}
+
+.site-footer{
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+}
+
+.site-footer ul{
+	margin: 0;
+	padding: 0;
+}
+.site-footer ul li{
+	list-style: none;
+	float: left;
+	padding: 10px;
+}
+.site-footer ul li a{
+	color: #222;
+}
+
+.site-footer ul li a:hover{
+	color: #666;
+}
+.footer-container{
+	max-width: 900px;
+	margin: auto;
+}
