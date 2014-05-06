@@ -17,17 +17,7 @@ require_once 'includes/checklogin.php';
 	<div id="wrapper" class="main">
 		<?php require_once 'includes/header.php';?>
 		<div class="latest-page">
-			<div class="popular-blogs">
-				<ul class="cf">
-					<?php
-					foreach (getAllBlogs('id', 5) as $blog) {?>
-						<li><a href="#"><?php echo $blog['title'];?></a></li>
-					<?php
-					}
-					?>
-					<li><a href="#">All</a></li>
-				</ul>
-			</div>
+			<?php require_once 'includes/blogsbar.php';?>
 			<header class="recent-post cf">
 				<h2>Recent Posts</h2>
 				<div class="post-something"><a class="button button-primary" href="addpost.php">Post Something</a></div>

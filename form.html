@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="style/form.css">
+</head>
+<body>
+	<div id="form_wrapper">
+		<form action="form.php" method='post'>
+			<ul>
+				<li>
+					<h2>Contact Me!</h2>
+					<span class="required_notification">* Denotes required field.</span>
+				</li>
+				<li>
+					<label for="name">Name:</label><input id="name" name="name" type="text" placeholder="John Smith" required="required">
+				</li>
+				<li>
+					<label for="email">Email:</label><input id="email" name="email" type="email" placeholder="you@example.com" required="required">
+					<span class="form_hint">Proper format<br>&quot;name@something.com&quot;</span>
+				</li>
+				<li>
+					<label for="website">Website:</label><input id="website" name="url" type="url" placeholder="http://www.domain.com" required pattern="(http|https)://.+">
+					<span class="form_hint">Proper format<br>&quot;http://www.something.com&quot;</span>
+				</li>
+				<li>
+					<label for="message">Message:</label>
+					<textarea id="message" name="message" placeholder="Max characters 500..." required="required"></textarea>
+				</li>
+				<li>
+					<a href="./" class="button button-secondary">Cancel</a><button class="submit button button-primary" type="submit">Send</button>
+					<div class="break"></div>
+				</li>
+			</ul>
+		</form>
+	</div><!-- END form_wrapper -->
+</body>
+</html>

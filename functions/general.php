@@ -16,6 +16,15 @@ function query($sql){
  * @param  string $location url for to redirect to relative to the page
  */
 function redirect($location) {
+	if (is_numeric($location)) {
+		switch ($location) {
+			case 404:
+				header("HTTP/1.0 404 Not Found");
+				require_once 'includes/404.php';
+				die();
+			
+		}
+	}
 	header('Location: ' . $location);
 	die();
 }
@@ -83,5 +92,4 @@ function sessionFlash($name, $value = null){
 		}
 	}
 }
-
 ?>

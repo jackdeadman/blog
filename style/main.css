@@ -33,6 +33,15 @@ input{
 	--webkit-appearance: none;
 	border-radius: 0;
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -376,7 +385,7 @@ input:not([type='submit']):focus::-webkit-input-placeholder{
 	color: #222;
 }
 .latest-page .more a:hover{
-	opacity: 0.8;
+	opacity: 0.9;
 }
 
 .latest-page header h2{
@@ -468,6 +477,7 @@ article .edit{
 
 .new-post .post-title{
 	width: 100%;
+	margin-bottom: 10px;
 }
 
 .new-post textarea{
@@ -478,19 +488,13 @@ article .edit{
 	padding: 10px;
 	font-size: 15px;
 	line-height: 1.5em;
-	margin: 20px 0;
+	margin-bottom: 10px;
 }
 
 .new-post .buttons{
 	float: right;
 }
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-    border-color: #3498db;
-}
+
 
 .category{
 	float: left;
@@ -517,5 +521,36 @@ button:focus {
 
 .post-comments{
 	margin-top: 20px;
-	padding: 10px;
-} 
+	padding: 0 10px;
+}
+
+.page-not-found{
+	background-color: #fff;
+	margin: 40px;
+	padding: 20px 40px;
+}
+.page-not-found h1{
+	font-size: 3.5em;
+	float: left;
+	margin: 20px;
+}
+.page-not-found h2{
+	font-size: 1.5em;
+}
+
+.page-not-found .nav{
+	clear: both;
+	float: left;
+	margin: 0;
+	margin-top: 20px;
+	padding: 0;
+}
+.page-not-found .nav li{
+	float: left;
+	list-style: none;
+}
+
+.page-not-found .nav li + li::before{
+	content: " | ";
+	padding: 0 10px;
+}

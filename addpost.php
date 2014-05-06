@@ -25,17 +25,7 @@ if (isset($_POST['title'],$_POST['body'],$_POST['blog'])) {
 	<div id="wrapper" class="main">
 		<?php require_once 'includes/header.php';?>
 		<div class="latest-page">
-			<div class="popular-blogs">
-				<ul class="cf">
-					<?php
-					foreach (getAllBlogs('id', 5) as $blog) {?>
-						<li><a href="#"><?php echo $blog['title'];?></a></li>
-					<?php
-					}
-					?>
-					<li><a href="#">All</a></li>
-				</ul>
-			</div>
+			<?php require_once 'includes/blogsbar.php';?>
 			<div class="new-post cf">
 				<form method="post">
 					<div><input name="title" class="post-title" type="text" placeholder="Title of post"></div>
