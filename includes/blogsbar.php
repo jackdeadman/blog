@@ -6,6 +6,6 @@
 		<?php
 		}
 		?>
-		<li><a href="allblogs.php">All</a></li>
+		<li><a href="allblogs.php">More</a></li>
 	</ul>
 </div>
