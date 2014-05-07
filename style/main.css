@@ -154,6 +154,10 @@ input:not([type='submit']):focus::-webkit-input-placeholder{
 	color: #fff;
 }
 
+.site-footer{
+
+}
+
 /******** END GENERAL ********/
 
 /******** LOGIN ********/
@@ -402,6 +406,10 @@ input:not([type='submit']):focus::-webkit-input-placeholder{
 	color: #000
 }
 
+.recent-post .blog-title{
+	font-weight: normal;
+}
+
 .post-something{
 	float: right;
 }
@@ -437,6 +445,17 @@ article .edit{
 	color: #fff;
 	margin: 0 10px;
 }
+
+/** ==== temp ==== **/
+.site-footer{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+body{
+	margin-bottom: 50px;
+}
+/** ==== END temp ==== **/
 
 .site-footer{
 	background-color: #fff;
@@ -506,10 +525,10 @@ article .edit{
 	bottom: 0;
 	width: 100%;
 }
-.main{
+/*.main{
 	height: 100%;
 	box-sizing: border-box;
-}
+}*/
 .category select{
 	width: 150px;
 }
@@ -524,6 +543,9 @@ article .edit{
 	padding: 0 10px;
 }
 
+
+
+/***** 404 *******/
 .page-not-found{
 	background-color: #fff;
 	margin: 40px;
@@ -540,7 +562,7 @@ article .edit{
 
 .page-not-found .nav{
 	clear: both;
-	float: left;
+	float: right;
 	margin: 0;
 	margin-top: 20px;
 	padding: 0;

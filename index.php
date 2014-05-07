@@ -2,6 +2,10 @@
 require_once('includes/ini.php');
 require_once('functions/user.php');
 
+if (userLoggedIn()) {
+	redirect('latest.php');
+}
+
 if (!empty($_POST)) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];

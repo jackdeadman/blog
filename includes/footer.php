@@ -1,4 +1,3 @@
-<div class="push"></div>
 <footer class="site-footer">
 	<div class="footer-container">
 		<ul class="cf">

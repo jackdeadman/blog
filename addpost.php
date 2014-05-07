@@ -43,15 +43,22 @@ if (isset($_POST['title'],$_POST['body'],$_POST['blog'])) {
 							</select>
 						</div>
 						<div class="buttons">
-							<a href="latest.php" class="button button-secondary">Cancel</a><input type="submit" value="Post" class="button button-primary">
+							<?php 
+							if (getBlogDetails($_GET['blog'])) {?>
+								<a href="showblog.php?id=<?php echo $_GET['blog']?>" class="button button-secondary">Cancel</a>
+							<?php
+							}else{?>
+								<a href="latest.php" class="button button-secondary">Cancel</a>
+							<?php
+							}
+							?>
+							<input type="submit" value="Post" class="button button-primary">
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
-		<div class="sticky-footer">
-			<?php require_once 'includes/footer.php';?>
-		</div>
+		<?php require_once 'includes/footer.php';?>
 	</div>
 </body>
 </html>

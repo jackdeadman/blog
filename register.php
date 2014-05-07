@@ -1,6 +1,11 @@
 <?php
 require_once('includes/ini.php');
 require_once('functions/user.php');
+
+if (userLoggedIn()) {
+	redirect('latest.php');
+}
+
 $errors = array();
 
 if(!empty($_POST)){

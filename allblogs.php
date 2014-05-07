@@ -27,7 +27,7 @@ require_once 'includes/checklogin.php';
 					<ul>
 						<?php
 						foreach (getAllBlogs('title') as $blog) {?>
-							<li><a href="blog.php?<?php echo $blog['id']?>"><?php echo $blog['title']?></a></li>
+							<li><a href="showblog.php?id=<?php echo $blog['id']?>"><?php echo $blog['title']?></a></li>
 						<?php
 						}
 						?>

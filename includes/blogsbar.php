@@ -2,7 +2,7 @@
 	<ul class="cf">
 		<?php
 		foreach (getAllBlogs('id', 5) as $blog) {?>
-			<li><a href="blog.php?<?php echo $blog['id']?>"><?php echo $blog['title'];?></a></li>
+			<li><a href="showblog.php?id=<?php echo escape($blog['id'])?>"><?php echo escape($blog['title']);?></a></li>
 		<?php
 		}
 		?>

@@ -33,6 +33,11 @@ function login($username, $pass) {
 	}
 	return false;
 }
+function userLoggedIn(){
+	return isset($_SESSION['user_id']);
+}
+
+
 /**
  * Registers a user into the as well as logging in
  * @param  string $username       
@@ -50,6 +55,5 @@ function registerUser($username, $password) {
 		return false;
 	}
 }
-
 
 ?>

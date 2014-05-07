@@ -21,7 +21,7 @@ function getAllBlogs($orderBy = 'id', $limit = 100) {
  */
 function getBlogDetails($id = false) {
 	$mysqli = $GLOBALS['DB'];
-	if ($id) {
+	if (is_numeric($id)) {
 		$result = $mysqli->query('SELECT * FROM blogs WHERE id = ' . $id);
 		return $result->fetch_assoc();
 	}
@@ -33,7 +33,7 @@ function getBlogDetails($id = false) {
  * @param  string  $orderBy optional param to order by a field
  * @return array           assoc array of all the rows
  */
-function getAllPosts($blogID = false, $orderBy = 'id') {
+function getBlogPosts($blogID = false, $orderBy = 'posts.id') {
 	if ($blogID) {
 		$mysqli = $GLOBALS['DB'];
 		$result = $mysqli->query('SELECT * FROM posts WHERE blog_fk = ' . $blogID . ' ORDER BY ' . $orderBy);
@@ -54,7 +54,7 @@ function getAllPosts($blogID = false, $orderBy = 'id') {
  */
 function getPostDetails($id = false, $field = 'user_fk') {
 	$mysqli = $GLOBALS['DB'];
-	if ($id) {
+	if (is_numeric($id)) {
 		$result = $mysqli->query('SELECT * FROM posts WHERE ' . $field . ' = ' . $id);
 		return $result->fetch_assoc();
 	}
