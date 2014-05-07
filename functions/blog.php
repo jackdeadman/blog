@@ -4,9 +4,14 @@
  * @param  string $orderBy Optional parameter to order the results by
  * @return array          assoc array of all the rows
  */
-function getAllBlogs($orderBy = 'id', $limit = 100) {
+function getAllBlogs($orderBy = 'blogs.id', $limit = 100) {
 	$mysqli = $GLOBALS['DB'];
-	$result = $mysqli->query('SELECT * FROM blogs ORDER BY ' . $orderBy . ' LIMIT ' . $limit);
+	if ($orderBy === 'popularity') {
+		$result = $mysqli->query('SELECT blogs.*, COUNT(posts.id) AS popularity FROM blogs JOIN posts ON posts.blog_fk = blogs.id GROUP BY blogs.id ORDER BY ' . $orderBy . ' DESC LIMIT ' . $limit);		
+	}else{
+		$result = $mysqli->query('SELECT * FROM blogs ORDER BY ' . $orderBy);
+	}
+
 	$blogs = array();
 
 	while ($row = $result->fetch_assoc()) {

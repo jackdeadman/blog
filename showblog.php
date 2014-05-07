@@ -19,6 +19,8 @@ if ($blogDetails = getBlogDetails($_GET['id'])) {
 	<title>Latest</title>
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="style/main.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/global.js"></script>
 </head>
 <body class="app">
 	<div id="wrapper" class="main">
@@ -41,17 +43,23 @@ if ($blogDetails = getBlogDetails($_GET['id'])) {
 				<?php
 				}else{
 				?>
-				<article>
-					<div class="date">APRIL 30, 2014</div>
-					<header><h3>Improving UI Animation Workflow with Velocity.js</h3></header>
-					<p>
-						The following is a guest post by Julian Shapiro. Julian recently released Velocity.js, a more performant jQuery replacement for .animate(). He recently wrote about how JavaScript animations can be so fast over on David Walsh’s blog, a topic we’ve covered here as well. In this article, Julian introduces Velocity.js itself.
-					</p>
-					<footer class="cf">						
-						<a class="readmore" href="showpost.php">Read More</a>
-					</footer>
-				</article>
-				<!-- <div class="more"><a href="#">Load More</a></div> -->
+					<div data-id="<?php echo $_GET['id']?>" class="blog-feed">	
+						<div class="items">
+							<article class="item">
+								<div class="date">APRIL 30, 2014</div>
+								<header><h3 data-field="title"></h3></header>
+								<p data-field="body">
+									
+								</p>
+								<footer>
+									<span>Posted in <a data-base="showblog.php?id=" data-link="blog_fk" data-field="blog"></a></span>
+									<a class="readmore" data-base="showpost.php?id=" data-link="id">Read More</a>
+								</footer>
+							</article>
+						</div>
+						<div class="more"><a class="items-load" href="#">Load More</a></div>
+					</div>
+
 				<?php
 				}?>
 			</div>
