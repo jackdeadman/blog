@@ -6,7 +6,12 @@ require_once 'includes/checklogin.php';
 
 if (isset($_POST['title'],$_POST['body'],$_POST['blog'])) {
 	if (addPost($_POST['blog'], $userDetails['id'], $_POST['title'], $_POST['body'])) {
-		// success feedback
+		sessionFlash('success', 'Successfully added post.');
+		if (isset($_GET['blog'])) {
+			redirect('showblog.php?id=' . $_GET['blog']);
+		}else{
+			redirect('latest.php');
+		}
 	}else{
 		// fail feedback
 	}
