@@ -34,10 +34,15 @@ if (isset($_POST['title'],$_POST['body'],$_POST['blog'])) {
 						<div class="category">
 							<span>Post in: </span>
 							<select name="blog">
-								<option selected disabled>Select a Blog</option>
+								<option <?php if (!isset($_GET['blog'])) {
+									echo 'selected';
+								}?> disabled>Select a Blog</option>
 								<?php
-								foreach (getAllBlogs('title') as $blog) {
-									echo '<option value="' . $blog['id'] . '">' . $blog['title'] . '</option>';
+								foreach (getAllBlogs('title') as $blog) {?>
+									<option <?php if ($blog['id'] === $_GET['blog']) {
+										echo 'selected';
+									}?> value="<?php echo $blog['id']?>"><?php echo $blog['title']?></option>
+								<?php
 								}
 								?>
 							</select>
