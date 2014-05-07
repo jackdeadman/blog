@@ -59,7 +59,6 @@ if ($blogDetails = getBlogDetails($_GET['id'])) {
 						</div>
 						<div class="more"><a class="items-load" href="#">Load More</a></div>
 					</div>
-
 				<?php
 				}?>
 			</div>

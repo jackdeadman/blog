@@ -576,3 +576,12 @@ body{
 	content: " | ";
 	padding: 0 10px;
 }
+
+.feed .more{
+	margin-top: 10px;
+}
+
+.feed .more img{
+	height: 15px;
+	width: auto;
+}

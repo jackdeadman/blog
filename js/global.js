@@ -5,9 +5,13 @@ $(document).ready(function() {
 	});
 
 	(function(){
-			$('.feed').css('display', 'none');
+			$('.items').css('display', 'none');
+			$('.feed').on('loadstart',function(){
+				$('.items-load').html('<img src="img/loader.GIF"> Loading');
+			});
 			$('.feed').on('loaded',function(){
-				$(this).css('display', 'block');
+				$('.items-load').html('Load More');
+				$('.items').css('display', 'block');
 			});
 
 			if (document.getElementById('dropzone')) {
@@ -111,6 +115,7 @@ $(document).ready(function() {
 			},
 
 			load = function(start, count) {
+				$(self).trigger('loadstart');
 				$.ajax({
 					url: settings.source,
 					type: 'get',
@@ -142,7 +147,6 @@ $(document).ready(function() {
 				load(stepped, settings.step);
 				return false;
 			});
-
 			load(1, settings.step);
 		}else {
 			console.log('Source is required for load more.');
