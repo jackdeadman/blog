@@ -538,10 +538,6 @@ body{
 	background-color: #fff;
 }
 
-.post-comments{
-	margin-top: 20px;
-	padding: 0 10px;
-}
 
 
 
@@ -584,4 +580,92 @@ body{
 .feed .more img{
 	height: 15px;
 	width: auto;
+}
+
+.allblogs li{
+	list-style: none;
+	margin: 10px 0;
+}
+
+/** Show post **/
+
+.post-user{
+	background-color: #fff;
+	float: left;
+	padding: 10px;
+	text-align: center;
+}
+
+.post-user img{
+	margin: 10px;
+}
+
+.post-content{
+	margin-left: 190px;
+	background-color: #fff;
+	padding: 20px;
+	position: relative;
+	line-height: 1.6em;
+}
+.post-triangle{
+	width: 0; 
+	height: 0; 
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent; 
+	border-right: 20px solid #fff;
+	position: absolute;
+	top: 30px;
+	left: -20px;
+}
+
+.post-details{
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+	text-align: right;
+}
+.post-comments{
+	margin-top: 10px;
+}
+
+.comment{
+	background-color: #fff;
+	padding: 10px;
+}
+
+.post-blog-title{
+	float: left;
+}
+.post-comment-title{
+	padding: 15px;
+	background-color: #fff;
+}
+.post-comment-title h3{
+	margin: 5px;
+}
+
+.comment-user{
+	float: left;
+}
+.comment-body{
+	margin-left: 70px;
+}
+.comment-date{
+	float: right;
+}
+.new-comment{
+	text-align: center;
+}
+.new-comment textarea{
+	width: 98%;
+	max-width: 98%;
+	min-height: 50px;
+	margin: auto;
+	margin-bottom: 5px;
+	font-size: 15px;
+	line-height: 1.5em;
+	padding: 5px;
+}
+
+.post-comment-title .action{
+	float: right;
 }

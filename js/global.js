@@ -11,7 +11,7 @@ $(document).ready(function() {
 			});
 			$('.feed').on('loaded',function(){
 				$('.items-load').html('Load More');
-				$('.items').css('display', 'block');
+				$('.items').show();
 			});
 
 			if (document.getElementById('dropzone')) {

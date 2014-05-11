@@ -23,7 +23,7 @@ require_once 'includes/checklogin.php';
 				<div class="post-something"><a class="button button-primary" href="addblog.php">Add new Blog</a></div>
 			</header>
 			<div class="feed">
-				<article>
+				<article class="allblogs">
 					<ul>
 						<?php
 						foreach (getAllBlogs('title') as $blog) {?>

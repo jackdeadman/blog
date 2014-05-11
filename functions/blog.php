@@ -58,12 +58,24 @@ function getBlogPosts($blogID = false, $orderBy = 'posts.id') {
  * @return array | bool         assoc array of post details or false if doesnt exist
  */
 function getPostDetails($id = false, $field = 'user_fk') {
+
 	$mysqli = $GLOBALS['DB'];
 	if (is_numeric($id)) {
-		$result = $mysqli->query('SELECT * FROM posts WHERE ' . $field . ' = ' . $id);
-		return $result->fetch_assoc();
+		$sql = "SELECT * FROM posts JOIN users ON users.id = posts.user_fk WHERE $field = $id";
+		if ($result = $mysqli->query($sql)) {
+			return $result->fetch_assoc();
+		}else{
+			return false;
+		}
 	}
 	return false;
+}
+
+function getPostComments($postID){
+	if (is_numeric($postID)) {
+		$sql = "SELECT * FROM comments JOIN users ON comments.user_fk = users.id WHERE post_fk = $postID";
+		return query($sql);
+	}
 }
 
 /**
