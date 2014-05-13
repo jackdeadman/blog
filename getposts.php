@@ -2,7 +2,8 @@
 // Used for ajax
 require_once 'includes/ini.php';
 require_once 'functions/blog.php';
-header('Content-Type: application/json');
+require_once 'functions/user.php';
+//header('Content-Type: application/json');
 
 $articles = array();
 
@@ -31,6 +32,15 @@ $articles = query("
 
 $articlesTotal = query("SELECT FOUND_ROWS() AS count");
 $articlesTotal = $articlesTotal[0]['count'];
+$count = 0;
+
+// Checks for @ in the body for profiles
+foreach ($articles as $article) {
+	$body = $articles[$count]['body'];
+	$body = parseBlogPost($body);
+	$articles[$count]['body'] = $body;
+	$count ++;
+}
 
 echo json_encode(array(
 	'items' => $articles,

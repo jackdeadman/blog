@@ -4,11 +4,11 @@
  * @param  int $id user id to get data for
  * @return array | bool      assoc array of details or false if user doesnt exist
  */
-function getUserDetails($id = false) {
+function getUserDetails($id = false, $field = 'users.id') {
 	$mysqli = $GLOBALS['DB'];
 	
 	if ($id) {
-		$result = query('SELECT * FROM users WHERE id = ' . $id . ';');
+		$result = query("SELECT * FROM users WHERE $field = '$id';");
 		return $result[0];
 	}else {
 		return false;
@@ -25,7 +25,7 @@ function login($username, $pass) {
 	if (isset($username, $pass)) {
 		if($result = $mysqli->query('SELECT * FROM users WHERE username = "' . $username . '";')){
 			$userDetails = $result->fetch_assoc();
-			if ($userDetails['password'] == hash('sha512', $pass)) {
+			if ($userDetails['password'] == hash('sha512', $pass . $userDetails['salt'])) {
 				$_SESSION['user_id'] = $userDetails['id'];
 				return $userDetails;
 			}
@@ -37,6 +37,9 @@ function userLoggedIn(){
 	return isset($_SESSION['user_id']);
 }
 
+function usernameExists($username){
+	return count(query("SELECT * FROM users WHERE username = '$username'")) ? true : false;
+}
 
 /**
  * Registers a user into the as well as logging in
@@ -48,8 +51,13 @@ function userLoggedIn(){
 function registerUser($username, $password) {
 	$mysqli = $GLOBALS['DB'];
 
-	$password = hash('sha512',$password);
-	if($mysqli->query('INSERT INTO users(username,password) VALUES("'.$username.'","'.$password.'")')){
+	$fh = fopen('/dev/urandom','rb');
+	$salt = fgets($fh,32);
+	fclose($fh);
+
+	$password = hash('sha512',$password . $salt);
+
+	if($mysqli->query("INSERT INTO users(username,password, salt) VALUES('$username','$password', '$salt')")){
 		return true;
 	}else{
 		return false;

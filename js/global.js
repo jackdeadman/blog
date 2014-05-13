@@ -100,7 +100,7 @@ $(document).ready(function() {
 						part = item.find('*[data-field="' + name + '"]');
 						
 						if (part.length) {
-							part.text(value[name]);
+							part.html(value[name]);
 						};
 
 						link = item.find('*[data-link="' + name + '"]');

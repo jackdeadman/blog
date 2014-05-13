@@ -4,14 +4,10 @@
  * @param  string $orderBy Optional parameter to order the results by
  * @return array          assoc array of all the rows
  */
-function getAllBlogs($orderBy = 'blogs.id', $limit = 100) {
+function getAllBlogs($orderBy = 'title') {
+	echo "SELECT * FROM blogs ORDER BY ' . $orderBy";
 	$mysqli = $GLOBALS['DB'];
-	if ($orderBy === 'popularity') {
-		$result = $mysqli->query('SELECT blogs.*, COUNT(posts.id) AS popularity FROM blogs JOIN posts ON posts.blog_fk = blogs.id GROUP BY blogs.id ORDER BY ' . $orderBy . ' DESC LIMIT ' . $limit);		
-	}else{
-		$result = $mysqli->query('SELECT * FROM blogs ORDER BY ' . $orderBy);
-	}
-
+	$result = $mysqli->query('SELECT * FROM blogs ORDER BY ' . $orderBy);
 	$blogs = array();
 
 	while ($row = $result->fetch_assoc()) {
@@ -26,7 +22,7 @@ function getAllBlogs($orderBy = 'blogs.id', $limit = 100) {
  */
 function getBlogDetails($id = false) {
 	$mysqli = $GLOBALS['DB'];
-	if (is_numeric($id)) {
+	if ($id) {
 		$result = $mysqli->query('SELECT * FROM blogs WHERE id = ' . $id);
 		return $result->fetch_assoc();
 	}
@@ -38,7 +34,7 @@ function getBlogDetails($id = false) {
  * @param  string  $orderBy optional param to order by a field
  * @return array           assoc array of all the rows
  */
-function getBlogPosts($blogID = false, $orderBy = 'posts.id') {
+function getAllPosts($blogID = false, $orderBy = 'id') {
 	if ($blogID) {
 		$mysqli = $GLOBALS['DB'];
 		$result = $mysqli->query('SELECT * FROM posts WHERE blog_fk = ' . $blogID . ' ORDER BY ' . $orderBy);
@@ -58,53 +54,14 @@ function getBlogPosts($blogID = false, $orderBy = 'posts.id') {
  * @return array | bool         assoc array of post details or false if doesnt exist
  */
 function getPostDetails($id = false, $field = 'user_fk') {
-
 	$mysqli = $GLOBALS['DB'];
-	if (is_numeric($id)) {
-		$sql = "SELECT * FROM posts JOIN users ON users.id = posts.user_fk WHERE $field = $id";
-		if ($result = $mysqli->query($sql)) {
-			return $result->fetch_assoc();
-		}else{
-			return false;
-		}
+	if ($id) {
+		$result = $mysqli->query('SELECT * FROM posts WHERE ' . $field . ' = ' . $id);
+		return $result->fetch_assoc();
 	}
 	return false;
 }
 
-/**
- * Gets all the comments inside of a post
- * @param  int $postID
- * @return array assoc array of all the comments in the post
- */
-function getPostComments($postID){
-	if (is_numeric($postID)) {
-		$sql = "SELECT * FROM comments JOIN users ON comments.user_fk = users.id WHERE post_fk = $postID";
-		return query($sql);
-	}
-}
-
-/**
- * Adds a new comment inside of a post
- * @param int $postID
- * @param int $userID
- * @param string $body
- */
-function addComment($postID = null, $userID = null, $body = null){
-	date_default_timezone_set("Europe/London");
-	$date = date('o-m-d H:i:s');
-	if ($postID && $userID && $body) {
-		query("INSERT INTO comments(post_fk, user_fk, body, posted_on) VALUES('$postID', '$userID', '$body', '$date')");
-		return true;
-	}else{
-		return false;
-	}
-}
-
-/**
- * Add a blog to the database
- * @param boolean $title Title to give the blog in the database
- * @return boolean success state
- */
 function addBlog($title = false) {
 	if ($title) {
 		$mysqli = $GLOBALS['DB'];
@@ -146,6 +103,7 @@ function deletePost($id = false) {
 	}
 	return false;
 }
+
 function parseBlogPost($body){
 	$checkingProfile = false;
 	$profile = '';
@@ -179,15 +137,6 @@ function parseBlogPost($body){
 		}
 	}
 	return $body;
-}
-
-function getUserPosts($id){
-	return query("SELECT * FROM posts WHERE user_fk = '$id'");
-}
-
-function getMentions($id){
-	$user = getUserDetails($id);
-	return query("SELECT * FROM posts WHERE body LIKE '%@{$user['username']}%'");
 }
 
 ?>

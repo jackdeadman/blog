@@ -11,6 +11,10 @@ if (getPostDetails($_GET['id'], 'posts.id')) {
 }
 $blogDetails = getBlogDetails($postDetails['blog_fk']);
 
+if (isset($_POST['body'])) {
+	addComment($_GET['id'], $userDetails['id'], $_POST['body']);
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,7 +35,7 @@ $blogDetails = getBlogDetails($postDetails['blog_fk']);
 						<div class="post-image">
 							<img src="https://www.gravatar.com/avatar/c7c065e79262d8097dc0f814b8877732?d=mm&s=110">
 						</div>
-						<div class="post-username"><?php echo $postDetails['username']?></div>
+						<div class="post-username"><a href="profile.php?id=<?php echo $postDetails['id']?>"><?php echo $postDetails['username']?></a></div>
 					</div>
 					<div class="post-content cf">
 						<div class="post-details">
@@ -43,7 +47,7 @@ $blogDetails = getBlogDetails($postDetails['blog_fk']);
 							<div class="post-triangle"></div>
 						</div>
 						<div class="post-body">
-							<?php echo $postDetails['body']?>
+							<?php echo parseBlogPost($postDetails['body'])?>
 						</div>
 					</div>
 				</div>
@@ -51,12 +55,14 @@ $blogDetails = getBlogDetails($postDetails['blog_fk']);
 				<div class="post-comments">
 					<header class="post-comment-title cf">
 						<h3>Comments (<?php echo count($comments)?>)</h3>
-						<div class="new-comment">
-							<textarea placeholder="What did you think of this blog post?"></textarea>
-						</div>
-						<div class="action">
-							<button class="button button-primary">Post comment</button>
-						</div>
+						<form method="post">
+							<div class="new-comment">
+								<textarea name="body" placeholder="What did you think of this blog post?"></textarea>
+							</div>
+							<div class="action">
+								<button class="button button-primary">Post comment</button>
+							</div>
+						</form>
 					</header>
 					
 					<?php
@@ -67,7 +73,7 @@ $blogDetails = getBlogDetails($postDetails['blog_fk']);
 									<img height="50" width="50" src="https://www.gravatar.com/avatar/c7c065e79262d8097dc0f814b8877732?d=mm&s=110">
 								</div>
 								<div class="comment-username">
-									<?php echo $comment['username']?>	
+									<a href="profile.php?id=<?php echo $comment['id']?>"><?php echo $comment['username']?></a>
 								</div>
 							</div>
 							<div class="comment-body">

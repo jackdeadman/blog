@@ -33,6 +33,9 @@ input{
 	--webkit-appearance: none;
 	border-radius: 0;
 }
+textarea{
+	font-family: 'Varela Round', sans-serif;
+}
 
 input:focus,
 select:focus,
@@ -638,6 +641,7 @@ body{
 .post-comment-title{
 	padding: 15px;
 	background-color: #fff;
+	margin-bottom: 15px;
 }
 .post-comment-title h3{
 	margin: 5px;
