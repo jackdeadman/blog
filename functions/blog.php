@@ -108,7 +108,8 @@ function addComment($postID = null, $userID = null, $body = null){
 function addBlog($title = false) {
 	if ($title) {
 		$mysqli = $GLOBALS['DB'];
-		if ($mysqli->query("INSERT INTO blogs(title) VALUES('$title')")) {
+		$date = getDateInFormat();
+		if ($mysqli->query("INSERT INTO blogs(title, date_added) VALUES('$title', '$date')")) {
 			return true;
 		}
 	}
@@ -188,6 +189,10 @@ function getUserPosts($id){
 function getMentions($id){
 	$user = getUserDetails($id);
 	return query("SELECT * FROM posts WHERE body LIKE '%@{$user['username']}%'");
+}
+
+function deleteBlog($id){
+	return query("DELETE FROM blogs WHERE id = $id");
 }
 
 ?>

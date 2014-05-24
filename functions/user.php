@@ -8,6 +8,13 @@ function getUserDetails($id = false, $field = 'users.id') {
 	$mysqli = $GLOBALS['DB'];
 	
 	if ($id) {
+		$sql = "
+		SELECT users.*
+		FROM users
+		JOIN permissions
+		ON permissions.id = users.permission_fk AS permission
+		";
+
 		$result = query("SELECT * FROM users WHERE $field = '$id';");
 		return $result[0];
 	}else {
@@ -62,6 +69,11 @@ function registerUser($username, $password) {
 	}else{
 		return false;
 	}
+}
+
+function hasPermission($id, $permission){
+	$userDetails = getUserDetails($id);
+	return $userDetails['permission'] === $permission;
 }
 
 ?>

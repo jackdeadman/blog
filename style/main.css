@@ -99,6 +99,11 @@ input:not([type='submit']):focus::-webkit-input-placeholder{
 	color: #3498db;
 }
 
+input[type='checkbox']{
+	-webkit-appearance: checkbox;
+	padding: 5px;
+}
+
 .button{
 	-webkit-appearance: none;
 	font-family: sans-serif;
@@ -672,4 +677,14 @@ body{
 
 .post-comment-title .action{
 	float: right;
+}
+
+/** DELETE blog ****/
+.delete-blog .notify{
+	float: left;
+	line-height: 38px;
+}
+
+.delete-blog form{
+	text-align: right;
 }

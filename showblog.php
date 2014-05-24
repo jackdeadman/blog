@@ -29,7 +29,10 @@ if ($blogDetails = getBlogDetails($_GET['id'])) {
 			<?php require_once 'includes/blogsbar.php';?>
 			<header class="recent-post cf">
 				<h2>Recent Posts in: <span class="blog-title"><?php echo escape($blogDetails['title'])?></span></h2>
-				<div class="post-something"><a class="button button-primary" href="addpost.php?blog=<?php echo $_GET['id']?>">Post Something in <?php echo escape($blogDetails['title'])?></a></div>
+				<div class="post-something">
+					<a href="deleteblog.php?id=<?php echo $_GET['id']?>" class="button button-danger">Delete</a>
+					<a class="button button-primary" href="addpost.php?blog=<?php echo $_GET['id']?>">Post Something in <?php echo escape($blogDetails['title'])?></a>
+				</div>
 			</header>
 			<div class="feed">
 				<?php

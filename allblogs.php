@@ -24,10 +24,32 @@ require_once 'includes/checklogin.php';
 			</header>
 			<div class="feed">
 				<article class="allblogs">
+					<div class="success">
+						<?php 
+						if ($success = sessionFlash('success')) {
+							echo $success;
+						}?>
+					</div>
+					<div class="error">
+						<?php
+						if ($error = sessionFlash('error')) {
+							echo $error;
+						}
+						?>
+					</div>
 					<ul>
 						<?php
+						$id = sessionFlash('newBlog');
+						echo $id;
 						foreach (getAllBlogs('title') as $blog) {?>
-							<li><a href="showblog.php?id=<?php echo $blog['id']?>"><?php echo $blog['title']?></a></li>
+							<li>
+								<a href="showblog.php?id=<?php echo $blog['id']?>"><?php echo $blog['title']?></a>
+								<?php 
+								if ($blog['id'] === $id) {?>
+								<em> New!</em>
+								<?php	
+								}?>
+							</li>
 						<?php
 						}
 						?>

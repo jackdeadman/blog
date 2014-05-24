@@ -38,20 +38,12 @@ function escape($string) {
 	return htmlentities($string);
 }
 
-function required($required = array(), $method = 'post'){
+function required($required = array(), $array){
 	$error = false;
 
-	if ($method == 'post') {
-		foreach($required as $field) {
-			if (empty($_POST[$field])){
-				$error = true;
-			}
-		}
-	}elseif($method == 'get'){
-		foreach($required as $field) {
-			if (empty($_GET[$field])){
-				$error = true;
-			}
+	foreach($required as $field) {
+		if (empty($array[$field])){
+			$error = true;
 		}
 	}
 	return !$error;
@@ -92,4 +84,21 @@ function sessionFlash($name, $value = null){
 		}
 	}
 }
+
+function uniqueEntry($data, $table, $field){
+	$results = query("SELECT * FROM $table WHERE $field = '$data'");
+	return count($results) === 0;
+}
+
+function getDateInFormat(){
+	date_default_timezone_set("Europe/London");
+	$date = date('o-m-d H:i:s');
+	return $date;
+}
+
+function lastInsertId(){
+	echo $GLOBALS['db']->insert_id;
+	return $GLOBALS['db']->insert_id;
+}
+
 ?>

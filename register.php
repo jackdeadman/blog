@@ -13,7 +13,7 @@ if(!empty($_POST)){
 	$password = $_POST['password'];
 	$passwordRepeat = $_POST['passwordRepeat'];
 
-	if (!required(array('username','password','passwordRepeat'), 'post')) {
+	if (!required(array('username','password','passwordRepeat'), $_POST)) {
 		$errors['all'] = 'All the fields are required.';
 	}else{
 
@@ -28,6 +28,10 @@ if(!empty($_POST)){
 		if (isMaxLength($username, 50)) {
 			$errors['username'] = 'Username is too long.';
 		}
+
+		if (!uniqueEntry($username, 'users', 'username')) {
+			$errors['username'] = 'Username has already been taken.';
+		}
 	}
 
 	if (empty($errors)) {
@@ -37,15 +41,6 @@ if(!empty($_POST)){
 			redirect('./');
 		}
 	}
-
-	// if ($response = registerUser($username, $password)) {
-	// 	if ($response === true) {
-	// 		redirect('blogs.php');
-	// 	}else {
-	// 		$errors = $response;
-	// 		var_dump($errors);
-	// 	}
-	// }
 }
 
 ?>
