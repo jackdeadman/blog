@@ -2,7 +2,7 @@
 if (isset($_POST['name'], $_POST['email'], $_POST['url'], $_POST['message'])) {
 
 	// Email address sending to 
-    $to = "jackdeadman@ymail.com";
+    $to = "myemail";
     $from = $_POST['email']; // Email address user entered
     $subject = "Feedback from " . $_POST['name']; // Subject of the email 
 
