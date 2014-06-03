@@ -97,7 +97,6 @@ function getDateInFormat(){
 }
 
 function lastInsertId(){
-	echo $GLOBALS['db']->insert_id;
 	return $GLOBALS['db']->insert_id;
 }
 

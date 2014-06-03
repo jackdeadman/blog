@@ -1,16 +1,26 @@
 <?php
-require_once 'includes/ini.php';
+require_once 'includes/ini.php'; // Initialises the page
 require_once 'functions/user.php';
 require_once 'functions/blog.php';
 require_once 'includes/checklogin.php';
 
+/**
+ * Gets the post details based on an ID
+ */
 if (getPostDetails($_GET['id'], 'posts.id')) {
 	$postDetails = getPostDetails($_GET['id'], 'posts.id');
 }else{
+	// Redirect if no id is given
 	redirect(404);
 }
+/**
+ * Gets the blog details based of an id
+ */
 $blogDetails = getBlogDetails($postDetails['blog_fk']);
 
+/**
+ * If a comment is posted it is added to the database, after validation
+ */
 if (isset($_POST['body'])) {
 	addComment($_GET['id'], $userDetails['id'], $_POST['body']);
 }
@@ -47,7 +57,9 @@ if (isset($_POST['body'])) {
 							<div class="post-triangle"></div>
 						</div>
 						<div class="post-body">
-							<?php echo parseBlogPost($postDetails['body'])?>
+							<?php 
+							/* Adds links to profile if @ is proceded by a user profile */
+							echo parseBlogPost($postDetails['body'])?>
 						</div>
 					</div>
 				</div>
@@ -66,6 +78,7 @@ if (isset($_POST['body'])) {
 					</header>
 					
 					<?php
+					// Outputs all the comment in the database for this post
 					foreach ($comments as $comment) {?>
 						<div class="comment cf">
 							<div class="comment-user">

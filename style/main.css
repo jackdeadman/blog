@@ -595,26 +595,29 @@ body{
 	margin: 10px 0;
 }
 
-/** Show post **/
+/* ===== Show post ====== */
 
+/* Container for holding a user details of the post */
 .post-user{
 	background-color: #fff;
 	float: left;
 	padding: 10px;
 	text-align: center;
 }
-
+/* Gives the profile image room to breathe */
 .post-user img{
 	margin: 10px;
 }
-
+/* Styles the text holder of the post */
 .post-content{
 	margin-left: 190px;
 	background-color: #fff;
 	padding: 20px;
+	/* Changes the context to be relative to this container, so the triangle can be positioned absolute */
 	position: relative;
 	line-height: 1.6em;
 }
+/* Creates a css traingle */
 .post-triangle{
 	width: 0; 
 	height: 0; 
@@ -625,16 +628,17 @@ body{
 	top: 30px;
 	left: -20px;
 }
-
+/* Hold the information abuut the post */
 .post-details{
 	margin-bottom: 10px;
 	border-bottom: 1px solid #ccc;
 	text-align: right;
 }
+/* Container for all comments on a post */
 .post-comments{
 	margin-top: 10px;
 }
-
+/* A comment inside of comments */
 .comment{
 	background-color: #fff;
 	padding: 10px;
@@ -654,6 +658,7 @@ body{
 
 .comment-user{
 	float: left;
+	text-align: center;
 }
 .comment-body{
 	margin-left: 70px;
@@ -678,7 +683,7 @@ body{
 .post-comment-title .action{
 	float: right;
 }
-
+/** == END 
 /** DELETE blog ****/
 .delete-blog .notify{
 	float: left;
