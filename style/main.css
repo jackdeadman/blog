@@ -595,7 +595,7 @@ body{
 	margin: 10px 0;
 }
 
-/* ===== Show post ====== */
+/* ===== Show posts and comments ====== */
 
 /* Container for holding a user details of the post */
 .post-user{
@@ -643,6 +643,10 @@ body{
 	background-color: #fff;
 	padding: 10px;
 }
+/* Add a seperator between each comment */ 
+.comment + .comment {
+	border-top: 1px solid #ccc;
+}
 
 .post-blog-title{
 	float: left;
@@ -669,6 +673,10 @@ body{
 .new-comment{
 	text-align: center;
 }
+
+/**
+ * Textarea can only be extended on y-axis and not the x-axis
+ */
 .new-comment textarea{
 	width: 98%;
 	max-width: 98%;
@@ -683,7 +691,10 @@ body{
 .post-comment-title .action{
 	float: right;
 }
-/** == END 
+/** == END posts and comments
+
+
+
 /** DELETE blog ****/
 .delete-blog .notify{
 	float: left;
