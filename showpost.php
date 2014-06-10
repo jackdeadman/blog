@@ -30,7 +30,7 @@ if (isset($_POST['body'])) {
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Latest</title>
+	<title>Post</title>
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 </head>

@@ -604,7 +604,9 @@ body{
 	padding: 10px;
 	text-align: center;
 }
-/* Gives the profile image room to breathe */
+/*  Gives the profile image room to breathe so the image is not
+	too close the surrounding content making it easier for the user to read
+*/
 .post-user img{
 	margin: 10px;
 }
@@ -617,7 +619,8 @@ body{
 	position: relative;
 	line-height: 1.6em;
 }
-/* Creates a css traingle */
+/* Creates a css traingle to clearly indicate to the user who posted the comments
+*/
 .post-triangle{
 	width: 0; 
 	height: 0; 
@@ -628,7 +631,7 @@ body{
 	top: 30px;
 	left: -20px;
 }
-/* Hold the information abuut the post */
+/* Hold the information about the post date was posted, */
 .post-details{
 	margin-bottom: 10px;
 	border-bottom: 1px solid #ccc;
@@ -643,11 +646,14 @@ body{
 	background-color: #fff;
 	padding: 10px;
 }
-/* Add a seperator between each comment */ 
+/* Add a seperator between each comment, these helps the user easily 
+distinguish between diffent posts*/ 
 .comment + .comment {
 	border-top: 1px solid #ccc;
 }
-
+/**
+ * Floated left so it sits on the same line as the post details.
+ */
 .post-blog-title{
 	float: left;
 }
@@ -659,23 +665,28 @@ body{
 .post-comment-title h3{
 	margin: 5px;
 }
-
+/**
+ * User details for a comment are floated to the left to quickly give the user 
+ */
 .comment-user{
 	float: left;
 	text-align: center;
 }
+/**
+ * Margin is added to the left to push the content away from the profile image on
+ * the left to make it more visible to the user
+ */
 .comment-body{
 	margin-left: 70px;
 }
-.comment-date{
-	float: right;
-}
+
 .new-comment{
 	text-align: center;
 }
 
 /**
- * Textarea can only be extended on y-axis and not the x-axis
+ * Textarea can only be extended on y-axis and not the x-axis to allow a user to 
+ * add longer comments and still fill comfortable
  */
 .new-comment textarea{
 	width: 98%;
@@ -691,11 +702,11 @@ body{
 .post-comment-title .action{
 	float: right;
 }
-/** == END posts and comments
+/** END posts and comments **/
 
 
 
-/** DELETE blog ****/
+/** DELETE blog **/
 .delete-blog .notify{
 	float: left;
 	line-height: 38px;
